@@ -1,0 +1,26 @@
+.full-page{
+    background-image: url(../../imgs/entrada.webp);
+    height: 100dvh;
+    width: 100dvw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+        padding: 50px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .form {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+}

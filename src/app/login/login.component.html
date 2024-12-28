@@ -1,0 +1,26 @@
+<section class="full-page">
+    <div class="content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" required />
+                <mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+                  Por favor, insira um email válido.
+                </mat-error>
+              </mat-form-field>
+              
+          
+              <mat-form-field appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" formControlName="password" required />
+                <mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                  A senha é obrigatória.
+                </mat-error>
+              </mat-form-field>
+          
+              <button mat-flat-button type="submit" [disabled]="form.invalid">
+                {{ isRegister ? 'Registrar' : 'Entrar' }}
+              </button>
+        </form>
+    </div>
+</section>

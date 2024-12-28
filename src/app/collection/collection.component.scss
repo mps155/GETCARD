@@ -1,0 +1,70 @@
+.content {
+  max-height: 50vh;
+  min-width: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fill, 310px);
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+
+  .card {
+    height: 300px;
+    width: 180px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+    .info {
+      height: 25px;
+      width: 100%;
+      border-radius: 5px 20px 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgb(0, 183, 255);
+
+      .name {
+        width: 80%;
+        height: 100%;
+        border-radius: 5px 0 0 0;
+        padding-left: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      .group {
+        background-color: black;
+        border-radius: 50%;
+        color: white;
+        font-size: 13px;
+        height: 15px;
+        width: 15px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .picture {
+      img {
+        margin: 5px 0 0;
+        width: 100%;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
+    .specs {
+        height: 100%;
+        border-radius: 15px;
+        border: 1px solid gray;
+        margin: 10px;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.full-page {
+  background-image: url(../../imgs/entrada.webp);
+  height: 100dvh;
+  width: 100dvw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    max-width: 800px;
+    max-height: 80vh;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .header {
+      height: 50px;
+      width: 100%;
+      background-color: rgb(157, 209, 255);
+      display: flex;
+      align-items: center;
+      justify-items: flex-end;
+      border-radius: 20px 20px 10px 10px;
+
+      .profile {
+        width: 100%;
+      }
+    }
+
+    .items {
+      border-radius: 10px 10px 20px 20px;
+      background-color: rgb(147, 107, 255);
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+
+      .collection,
+      .challenge {
+        height: 200px;
+        width: 150px;
+        background-color: rgba(255, 255, 255, 0.384);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        font-weight: 500;
+        text-shadow: -2px 2px 10px rgba(0, 0, 0, 20.5);
+        overflow: hidden;
+        position: relative;
+
+        img {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      .collection {
+        background-image: url(../../imgs/colecao.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .challenge {
+        background-image: url(../../imgs/desafios.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3); /* Cor do ripple */
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(
+      4
+    ); /* O ripple vai se expandir para 4x seu tamanho original */
+    opacity: 0;
+  }
+}

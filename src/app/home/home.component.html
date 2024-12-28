@@ -1,0 +1,21 @@
+<section class="full-page">
+    <div class="content">
+        <div class="header">
+            <app-profile class="profile"></app-profile>
+        </div>
+        <div class="items" *ngIf="!showCollection">
+            <button mat-button class="collection" (click)="showCollectionToggle()">
+                <img src="assets/collection.png">
+                coleção
+            </button>
+            <button mat-button class="challenge">
+                <img src="assets/finish-flag.png">
+                Desafios
+            </button>
+        </div>
+
+        <div class="items" *ngIf="showCollection">
+            <app-collection></app-collection>
+        </div>
+    </div>
+</section>

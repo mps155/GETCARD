@@ -4,6 +4,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { LoginService } from './services/login.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,25 +19,43 @@ import { CommonModule } from '@angular/common';
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
+  animations: [
+    trigger('textChange', [
+      state('login', style({ opacity: 1 })),
+      state('register', style({ opacity: 1 })),
+      transition('login <=> register', [
+        style({ opacity: 0 }),
+        animate('300ms ease-in')
+      ])
+    ])
+  ]
 })
 export class LoginComponent {
   form: FormGroup;
   isRegister = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(3)]],
+      name: [],
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
-      const { email, password } = this.form.value;
+      const { email, password, name } = this.form.value;
       if (this.isRegister) {
-        console.log('Registrando usuário:', { email, password });
+        // Use o serviço para registrar
+        this.loginService.register(email, password, name).subscribe(response => {
+          console.log('Usuário registrado:', response);
+        });
       } else {
-        console.log('Logando usuário:', { email, password });
+        // Use o serviço para logar
+        this.loginService.login(email, password).subscribe(response => {
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/home']);
+        });
       }
     }
   }

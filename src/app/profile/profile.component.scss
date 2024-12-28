@@ -1,0 +1,24 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+
+  .data {
+    padding: 10px 0 0 10px;
+    .name,
+    .exp {
+      cursor: pointer;
+    }
+  }
+
+  .money {
+    padding: 10px 10px 0 0;
+    .gcc,
+    .gcv {
+      cursor: pointer;
+    }
+  }
+}

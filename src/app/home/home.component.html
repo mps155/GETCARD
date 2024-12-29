@@ -15,7 +15,7 @@
         </div>
 
         <div class="items" *ngIf="showCollection">
-            <app-collection></app-collection>
+            <app-collection (backToMenu)="showCollectionToggle()"></app-collection>
         </div>
     </div>
 </section>

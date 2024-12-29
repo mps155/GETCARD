@@ -1,70 +1,184 @@
+.back-link {
+  font-weight: 500;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 5px 5px 10px;
+}
+
 .content {
   max-height: 50vh;
   min-width: 500px;
   overflow-y: auto;
   overflow-x: hidden;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(auto-fill, 310px);
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  display: flex;
+  margin-bottom: 5px;
 
-  .card {
-    height: 300px;
-    width: 180px;
-    background-color: rgb(255, 255, 255);
+  &.content-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fill, 310px);
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+
+  &.content-spin {
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    .spin {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .warn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      img {
+        height: 45px;
+        width: 45px;
+      }
+
+      .cards {
+        perspective: 600px;
+        padding: 30px 0;
+        display: flex;
+        gap: 10px;
+
+        .card-flip {
+          height: 310px;
+          width: 180px;
+          background-color: rgb(255, 255, 255);
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          transform-style: preserve-3d;
+
+          .face {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            backface-visibility: hidden;
+
+            > img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: inherit;
+            }
+          }
+
+          .front {
+            transform: rotateY(180deg);
+          }
+
+          .card-back {
+            height: calc(100% - 10px);
+            width: calc(100% - 10px);
+            margin: 5px;
+            border-radius: 5px;
+            background-image: url(../../imgs/colecao.jpg);
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.card {
+  height: 300px;
+  width: 170px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+
+  .info {
+    height: 25px;
+    width: 100%;
+    border-radius: 5px 20px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(0, 183, 255);
+
+    .name {
+      width: 80%;
+      height: 100%;
+      border-radius: 5px 0 0 0;
+      padding-left: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .group {
+      background-color: black;
+      border-radius: 50%;
+      color: white;
+      font-size: 13px;
+      height: 15px;
+      width: 15px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .picture {
+    img {
+      margin: 5px 0 0;
+      width: 100% !important;
+      height: 110px !important;
+      object-fit: cover;
+      border-radius: 0 5px 5px;
+    }
+  }
+
+  .specs {
+    height: 100%;
     border-radius: 5px;
+    border: 1px solid gray;
+    margin: 2px;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    align-items: flex-start;
+    justify-content: space-evenly;
 
-    .info {
-      height: 25px;
-      width: 100%;
-      border-radius: 5px 20px 20px 0;
+    .spc {
+      background-color: rgb(0, 132, 255);
+      width: calc(100% - 20px);
+      border-radius: 5px;
+      margin: 0 5px;
+      padding: 0 5px;
+      font-size: 12px;
+      height: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: rgb(0, 183, 255);
+      color: white;
 
-      .name {
-        width: 80%;
+      span {
+        font-size: 14px;
         height: 100%;
-        border-radius: 5px 0 0 0;
-        padding-left: 5px;
-        display: flex;
-        align-items: center;
-      }
-
-      .group {
-        background-color: black;
-        border-radius: 50%;
-        color: white;
-        font-size: 13px;
-        height: 15px;
-        width: 15px;
-        padding: 5px;
+        font-weight: 500;
+        background-color: rgb(97, 97, 97);
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-    }
-
-    .picture {
-      img {
-        margin: 5px 0 0;
-        width: 100%;
-        height: 110px;
-        object-fit: cover;
+        width: 72px;
+        margin-right: -5px;
         border-radius: 5px;
       }
-    }
-
-    .specs {
-        height: 100%;
-        border-radius: 15px;
-        border: 1px solid gray;
-        margin: 10px;
     }
   }
 }

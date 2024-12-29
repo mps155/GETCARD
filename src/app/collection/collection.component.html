@@ -1,29 +1,88 @@
-<div class="content">
-  <div class="card">
-    <div class="info">
-      <div class="name">Camaro</div>
-      <div class="group">3C</div>
+<div class="back-link" (click)="backToMenu.emit(true)">Voltar</div>
+<div
+  class="content" *ngIf="!loading"
+  [ngClass]="cardList.length > 0 ? 'content-cards' : 'content-spin'"
+>
+  <ng-container *ngIf="cardList.length > 0">
+    <div class="card" *ngFor="let card of cardList">
+      <div class="info">
+        <div class="name">{{ card.modelo }}</div>
+        <div class="group">{{ card.group }}</div>
+      </div>
+      <div class="picture">
+        <img [src]="getImgUrl(card.group)" />
+      </div>
+      <div class="specs">
+        <div class="spc">
+          Cilindrada <span>{{ card.cilindrada }} cm³</span>
+        </div>
+        <div class="spc">
+          Cilindro <span>{{ card.cilindros }}</span>
+        </div>
+        <div class="spc">
+          Potencia <span>{{ card.potencia }} cv</span>
+        </div>
+        <div class="spc">
+          Velocidade <span>{{ card.velocidade }} km/h</span>
+        </div>
+        <div class="spc">
+          0 a 100 km/h <span>{{ card.aceleracao }} s</span>
+        </div>
+      </div>
     </div>
-    <div class="picture"><img src="assets/cars/3c.jpg" alt=""></div>
-    <div class="specs">
-        <div class="spc">Cilindrada</div>
-        <div class="spc">Cilindro</div>
-        <div class="spc">Potencia</div>
-        <div class="spc">Velocidade</div>
-        <div class="spc">0 a 100 km/h</div>
+  </ng-container>
+  <ng-container *ngIf="cardList.length == 0">
+    <div class="spin">
+      <div class="warn" *ngIf="spinCards.length == 0">
+        Ganhe 5 cartas
+        <button mat-fab extended (click)="getCardsFromSpin()">
+          <img src="../../imgs/lottery.png" />
+        </button>
+      </div>
+      <ng-container *ngIf="spinCards.length > 0">
+        <div class="cards">
+          <div
+            class="card-flip"
+            *ngFor="let card of spinCards; let i = index"
+            (click)="toggleFlip(i)"
+            [@cardFlip]="data[i].state"
+          >
+            <div class="face back"><div class="card-back"></div></div>
+            <div class="face front">
+              <div class="card">
+                <div class="info">
+                  <div class="name">{{ card.modelo }}</div>
+                  <div class="group">{{ card.group }}</div>
+                </div>
+                <div class="picture">
+                  <img [src]="getImgUrl(card.group)" />
+                </div>
+                <div class="specs">
+                  <div class="spc">
+                    Cilindrada <span>{{ card.cilindrada }} cm³</span>
+                  </div>
+                  <div class="spc">
+                    Cilindro <span>{{ card.cilindros }}</span>
+                  </div>
+                  <div class="spc">
+                    Potencia <span>{{ card.potencia }} cv</span>
+                  </div>
+                  <div class="spc">
+                    Velocidade <span>{{ card.velocidade }} km/h</span>
+                  </div>
+                  <div class="spc">
+                    0 a 100 km/h <span>{{ card.aceleracao }} s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button mat-flat-button (click)="backToCollection()">Voltar</button>
+      </ng-container>
     </div>
-  </div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
+  </ng-container>
+</div>
+<div *ngIf="loading">
+  <mat-spinner></mat-spinner>
 </div>

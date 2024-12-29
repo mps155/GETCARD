@@ -1,10 +1,14 @@
-.back-link {
-  font-weight: 500;
-  color: white;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 5px 5px 10px;
+.header {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 5px;
 }
+
 
 .content {
   max-height: 50vh;
@@ -16,7 +20,7 @@
 
   &.content-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(auto-fill, 310px);
     grid-row-gap: 10px;
     grid-column-gap: 10px;
@@ -26,6 +30,8 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
+    min-width: 400px;
+    min-height: 400px;
 
     .spin {
       display: flex;
@@ -84,7 +90,7 @@
             width: calc(100% - 10px);
             margin: 5px;
             border-radius: 5px;
-            background-image: url(../../imgs/colecao.jpg);
+            background-image: url(../../imgs/colecao.webp);
             background-size: cover;
           }
         }
@@ -181,4 +187,8 @@
       }
     }
   }
+}
+
+.loading {
+  width: 490px;
 }

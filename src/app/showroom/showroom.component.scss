@@ -1,0 +1,36 @@
+.header {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.content {
+  max-height: 50vh;
+  min-width: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  margin-bottom: 5px;
+
+  &.content-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(auto-fill, 310px);
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+
+  &.content-spin {
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    min-height: 400px;
+    gap: 30px;
+  }
+}
+

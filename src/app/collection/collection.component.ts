@@ -11,6 +11,8 @@ import {
   animate,
 } from '@angular/animations';
 import { CollectionService } from './services/collection.service';
+import { CardComponent } from '../card/card.component';
+import { ListHeaderComponent } from '../list-header/list-header.component';
 
 export interface CardData {
   state: 'default' | 'flipped' | 'matched';
@@ -23,6 +25,8 @@ export interface CardData {
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    CardComponent,
+    ListHeaderComponent
   ],
   templateUrl: './collection.component.html',
   styleUrl: './collection.component.scss',
@@ -58,6 +62,7 @@ export class CollectionComponent implements OnInit {
   @Output() backToMenu = new EventEmitter<boolean>();
 
   public cardList: any[] = [];
+  public cardListDefault: any[] = [];
   public spinCards: any[] = [];
   public loading: boolean = true;
 
@@ -115,10 +120,12 @@ export class CollectionComponent implements OnInit {
     this.collectionService.getAllCards().subscribe((res: any) => {
       this.loading = false;
       this.cardList = res.cardList;
+      this.cardListDefault = res.cardList;
     });
   }
 
-  getImgUrl(group: string) {
-    return `assets/cars/${group.toUpperCase()}.jpg`
+  setCardList($event: any) {
+    this.cardList = $event;
+    console.log($event);
   }
 }

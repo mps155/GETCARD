@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="back-link" (click)="backToMenu.emit(true)">Voltar</div>
+  <button mat-button [matMenuTriggerFor]="filter">
+    <i class="material-icons">filter_alt</i>
+  </button>
+  <mat-menu #filter="matMenu">
+    <button mat-menu-item>Todos</button>
+    <button mat-menu-item>Marca</button>
+    <button mat-menu-item>Raridade</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="order">
+    <i class="material-icons">format_line_spacing</i>
+  </button>
+  <mat-menu #order="matMenu">
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(1))">Grupo</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(2))">Marca</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(3))">Cilindradas</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(4))">Cilindros</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(5))">Potencia</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(6))">Velocidade</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(7))">Aceleracao</button>
+    <button mat-menu-item (click)="cardListOrdered.emit(orderCardList(8))">Raridade</button>
+  </mat-menu>
+</div>

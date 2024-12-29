@@ -40,7 +40,8 @@
       padding: 10px;
 
       .collection,
-      .challenge {
+      .challenge,
+      .showroom {
         height: 200px;
         width: 150px;
         background-color: rgba(255, 255, 255, 0.384);
@@ -64,13 +65,19 @@
       }
 
       .collection {
-        background-image: url(../../imgs/colecao.jpg);
+        background-image: url(../../imgs/colecao.webp);
         background-size: cover;
         background-position: center;
       }
 
       .challenge {
-        background-image: url(../../imgs/desafios.jpg);
+        background-image: url(../../imgs/desafios.webp);
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .showroom {
+        background-image: url(../../imgs/showroom.webp);
         background-size: cover;
         background-position: center;
       }

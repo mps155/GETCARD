@@ -1,0 +1,28 @@
+<div class="card" [ngClass]="card.raridade">
+  <div class="inner">
+    <div class="info">
+      <div class="name">{{ card.modelo }}</div>
+      <div class="group">{{ card.group }}</div>
+    </div>
+    <div class="picture">
+      <img [src]="getImgUrl(card.group)" />
+    </div>
+    <div class="specs">
+      <div class="spc">
+        Cilindrada <span>{{ card.cilindrada }} cm³</span>
+      </div>
+      <div class="spc">
+        Cilindro <span>{{ card.cilindros }}</span>
+      </div>
+      <div class="spc">
+        Potencia <span>{{ card.potencia }} cv</span>
+      </div>
+      <div class="spc">
+        Velocidade <span>{{ card.velocidade }} km/h</span>
+      </div>
+      <div class="spc">
+        0 a 100 km/h <span>{{ card.aceleracao }} s</span>
+      </div>
+    </div>
+  </div>
+</div>

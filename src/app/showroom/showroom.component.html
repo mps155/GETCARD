@@ -1,0 +1,14 @@
+<div class="header">
+    <app-list-header [cardListDefault]="cardListDefault" [cardList]="cardListDefault" (cardListOrdered)="setCardList($event)" (backToMenu)="backToMenu.emit(true)"></app-list-header>
+</div>
+<div
+  class="content"
+  [ngClass]="cardList.length > 0 ? 'content-cards' : 'content-spin'"
+>
+  <ng-container *ngIf="!loading">
+    <app-card *ngFor="let card of cardList" [card]="card"></app-card>
+  </ng-container>
+  <div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

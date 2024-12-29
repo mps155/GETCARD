@@ -1,37 +1,14 @@
-<div class="back-link" (click)="backToMenu.emit(true)">Voltar</div>
+<div class="header">
+  <app-list-header [cardListDefault]="cardListDefault" [cardList]="cardListDefault" (cardListOrdered)="setCardList($event)" (backToMenu)="backToMenu.emit(true)"></app-list-header>
+</div>
 <div
-  class="content" *ngIf="!loading"
+  class="content"
   [ngClass]="cardList.length > 0 ? 'content-cards' : 'content-spin'"
 >
-  <ng-container *ngIf="cardList.length > 0">
-    <div class="card" *ngFor="let card of cardList">
-      <div class="info">
-        <div class="name">{{ card.modelo }}</div>
-        <div class="group">{{ card.group }}</div>
-      </div>
-      <div class="picture">
-        <img [src]="getImgUrl(card.group)" />
-      </div>
-      <div class="specs">
-        <div class="spc">
-          Cilindrada <span>{{ card.cilindrada }} cm³</span>
-        </div>
-        <div class="spc">
-          Cilindro <span>{{ card.cilindros }}</span>
-        </div>
-        <div class="spc">
-          Potencia <span>{{ card.potencia }} cv</span>
-        </div>
-        <div class="spc">
-          Velocidade <span>{{ card.velocidade }} km/h</span>
-        </div>
-        <div class="spc">
-          0 a 100 km/h <span>{{ card.aceleracao }} s</span>
-        </div>
-      </div>
-    </div>
+  <ng-container *ngIf="cardList.length > 0 && !loading">
+    <app-card *ngFor="let card of cardList" [card]="card"></app-card>
   </ng-container>
-  <ng-container *ngIf="cardList.length == 0">
+  <ng-container *ngIf="cardList.length == 0 && !loading">
     <div class="spin">
       <div class="warn" *ngIf="spinCards.length == 0">
         Ganhe 5 cartas
@@ -49,32 +26,7 @@
           >
             <div class="face back"><div class="card-back"></div></div>
             <div class="face front">
-              <div class="card">
-                <div class="info">
-                  <div class="name">{{ card.modelo }}</div>
-                  <div class="group">{{ card.group }}</div>
-                </div>
-                <div class="picture">
-                  <img [src]="getImgUrl(card.group)" />
-                </div>
-                <div class="specs">
-                  <div class="spc">
-                    Cilindrada <span>{{ card.cilindrada }} cm³</span>
-                  </div>
-                  <div class="spc">
-                    Cilindro <span>{{ card.cilindros }}</span>
-                  </div>
-                  <div class="spc">
-                    Potencia <span>{{ card.potencia }} cv</span>
-                  </div>
-                  <div class="spc">
-                    Velocidade <span>{{ card.velocidade }} km/h</span>
-                  </div>
-                  <div class="spc">
-                    0 a 100 km/h <span>{{ card.aceleracao }} s</span>
-                  </div>
-                </div>
-              </div>
+              <app-card [card]="card"></app-card>
             </div>
           </div>
         </div>
@@ -82,7 +34,7 @@
       </ng-container>
     </div>
   </ng-container>
-</div>
-<div *ngIf="loading">
-  <mat-spinner></mat-spinner>
+  <div *ngIf="loading" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>

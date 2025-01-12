@@ -118,9 +118,9 @@ export class CollectionComponent implements OnInit {
 
   getAllCards() {
     this.collectionService.getAllCards().subscribe((res: any) => {
-      this.loading = false;
       this.cardList = res.cardList;
       this.cardListDefault = res.cardList;
+      this.loading = false;
     });
   }
 

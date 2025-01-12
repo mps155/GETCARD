@@ -28,6 +28,5 @@ export class ShowroomComponent implements OnInit {
    
   setCardList($event: any) {
     this.cardList = $event;
-    console.log($event);
   }
 }

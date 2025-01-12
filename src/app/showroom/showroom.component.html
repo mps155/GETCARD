@@ -3,7 +3,7 @@
 </div>
 <div
   class="content"
-  [ngClass]="cardList.length > 0 ? 'content-cards' : 'content-spin'"
+  [ngClass]="!loading ? 'content-cards' : 'content-spin'"
 >
   <ng-container *ngIf="!loading">
     <app-card *ngFor="let card of cardList" [card]="card"></app-card>

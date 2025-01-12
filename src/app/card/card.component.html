@@ -1,5 +1,8 @@
 <div class="card" [ngClass]="card.raridade">
-  <div class="inner">
+  <div class="inner" (click)="openModal()" *ngIf="!fromModal">
+    <div class="overlay">
+      <mat-icon>pageview</mat-icon>
+    </div>
     <div class="info">
       <div class="name">{{ card.modelo }}</div>
       <div class="group">{{ card.group }}</div>

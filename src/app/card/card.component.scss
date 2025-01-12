@@ -73,6 +73,7 @@
     height: 100%;
     border-radius: 5px 14px 5px 5px;
     flex-direction: column;
+    cursor: pointer;
 
     .info {
       height: 25px;
@@ -154,10 +155,39 @@
       }
     }
   }
+
+  .overlay {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    pointer-events: none; 
+
+    mat-icon{
+      display: none;
+    }
+  }
+  
+  .inner:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    mat-icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      color: white;
+    }
+  }
 }
 
-.card:hover {
-  transition: 1s ease;
-  cursor: pointer;
-  z-index: 9999999999999;
-}
+// .card:hover {
+//   transition: 1s ease;
+//   cursor: pointer;
+//   z-index: 9999999999999;
+// }

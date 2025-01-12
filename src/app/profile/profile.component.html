@@ -1,12 +1,12 @@
 <div class="content">
   <div class="data">
-    <div class="name">Olá, {{ user.name }}</div>
+    <div class="name">Olá, {{ user?.name }}</div>
     <div
       class="exp"
       matTooltip="Pontos de experiencia"
       matTooltipHideDelay="200"
     >
-      NV: {{ user.exp }} exp
+      NV: {{ user?.exp }} exp
     </div>
   </div>
   <div class="money">
@@ -15,14 +15,14 @@
       matTooltip="GetCard Coins (moeda conquistada)"
       matTooltipHideDelay="200"
     >
-      GCC: {{ user.gcc }}
+      GCC: {{ user?.gcc }}
     </div>
     <div
       class="gcv"
       matTooltip="GetCard Vip (moeda comprada)"
       matTooltipHideDelay="200"
     >
-      GCV: {{ user.gcv }}
+      GCV: {{ user?.gcv }}
     </div>
   </div>
 </div>
